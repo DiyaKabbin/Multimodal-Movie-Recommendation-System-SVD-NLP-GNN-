@@ -1,3 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+venv_modern/
+*.egg-info/
+
+
 # Virtual Environments
 venv/
 venv_modern/
@@ -29,18 +37,7 @@ node_modules/
 .env
 
 
-
-
-
-
-# Python
-__pycache__/
-*.pyc
-venv/
-venv_modern/
-*.egg-info/
-
-# Large model/embedding files
+# Large model/embedding files (too big for GitHub)
 embeddings/
 svd/
 gnn/
@@ -48,3 +45,10 @@ ir/
 hybrid/hybrid_ranker.pt
 data/ml-latest-small/
 node_modules/
+
+# Logs
+logs/
+*.log
+
+# Env
+.env
