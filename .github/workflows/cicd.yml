@@ -36,7 +36,9 @@ jobs:
           pip install -r requirements_modern.txt   
 
       - name: Run tests
-        run: pytest tests/ -v --tb=short
+        run: |
+            export PYTHONPATH=$PYTHONPATH:.
+            pytest tests/ -v --tb=short
 
   # ─────────────────────────────────────────
   # 2. Build & Push Docker image
