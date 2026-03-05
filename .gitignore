@@ -1,0 +1,50 @@
+# Virtual Environments
+venv/
+venv_modern/
+venv_surprise/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# Data
+data/
+
+# Model files
+*.pt
+*.pth
+*.pkl
+*.h5
+*.db
+*.sqlite
+
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+
+
+
+
+
+
+# Python
+__pycache__/
+*.pyc
+venv/
+venv_modern/
+*.egg-info/
+
+# Large model/embedding files
+embeddings/
+svd/
+gnn/
+ir/
+hybrid/hybrid_ranker.pt
+data/ml-latest-small/
+node_modules/

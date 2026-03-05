@@ -1,0 +1,88 @@
+{
+  "title": "MovieRecc API Dashboard",
+  "uid": "movierecc-main",
+  "schemaVersion": 38,
+  "refresh": "10s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Requests per Second",
+      "type": "stat",
+      "gridPos": { "x": 0, "y": 0, "w": 6, "h": 4 },
+      "targets": [{
+        "expr": "rate(movierecc_requests_total[1m])",
+        "legendFormat": "req/s"
+      }]
+    },
+    {
+      "id": 2,
+      "title": "P95 Latency",
+      "type": "stat",
+      "gridPos": { "x": 6, "y": 0, "w": 6, "h": 4 },
+      "targets": [{
+        "expr": "histogram_quantile(0.95, rate(movierecc_request_latency_seconds_bucket[5m]))",
+        "legendFormat": "p95 latency"
+      }]
+    },
+    {
+      "id": 3,
+      "title": "Error Rate",
+      "type": "stat",
+      "gridPos": { "x": 12, "y": 0, "w": 6, "h": 4 },
+      "targets": [{
+        "expr": "rate(movierecc_errors_total[5m])",
+        "legendFormat": "errors/s"
+      }]
+    },
+    {
+      "id": 4,
+      "title": "Active Users Loaded",
+      "type": "stat",
+      "gridPos": { "x": 18, "y": 0, "w": 6, "h": 4 },
+      "targets": [{
+        "expr": "movierecc_active_users_total",
+        "legendFormat": "users"
+      }]
+    },
+    {
+      "id": 5,
+      "title": "Request Latency Over Time",
+      "type": "timeseries",
+      "gridPos": { "x": 0, "y": 4, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "histogram_quantile(0.50, rate(movierecc_request_latency_seconds_bucket[5m]))",
+          "legendFormat": "p50"
+        },
+        {
+          "expr": "histogram_quantile(0.95, rate(movierecc_request_latency_seconds_bucket[5m]))",
+          "legendFormat": "p95"
+        },
+        {
+          "expr": "histogram_quantile(0.99, rate(movierecc_request_latency_seconds_bucket[5m]))",
+          "legendFormat": "p99"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Request Volume by Status",
+      "type": "timeseries",
+      "gridPos": { "x": 12, "y": 4, "w": 12, "h": 8 },
+      "targets": [
+        {
+          "expr": "rate(movierecc_requests_total{status='200'}[1m])",
+          "legendFormat": "200 OK"
+        },
+        {
+          "expr": "rate(movierecc_requests_total{status='400'}[1m])",
+          "legendFormat": "400 Bad Request"
+        },
+        {
+          "expr": "rate(movierecc_requests_total{status='500'}[1m])",
+          "legendFormat": "500 Error"
+        }
+      ]
+    }
+  ]
+}

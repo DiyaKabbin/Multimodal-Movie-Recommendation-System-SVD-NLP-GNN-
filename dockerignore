@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtualenvs
+venv/
+venv_modern/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local env files
+.env
+.env.*
+
+# Docker
+Dockerfile*
+docker-compose*
+
+# Large model files — mounted as volumes instead
+# Comment these out if you want them baked into the image
+svd/
+gnn/
+hybrid/
+ir/
+embeddings/
+data/
